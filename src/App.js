@@ -11,7 +11,7 @@ function App() {
   const [orders, setOrders] = useState([]);
   const updateSingleOrder = (orderIndex, orderQuantity) => {
     const newOrders = [...orders];
-    newOrders[orderIndex].quantity = orderQuantity;
+    newOrders[orderIndex].quantity = parseInt(orderQuantity);
     setOrders(newOrders);
   };
   const removeProduct = (orderIndex) => {

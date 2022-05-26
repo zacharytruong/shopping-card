@@ -47,39 +47,35 @@ export const Products = [
     duration: 5,
     price: 396,
     image: oasisOfTheSeas
+  },
+  {
+    ship: 'WONDER OF THE SEAS',
+    destination: 'Bahamas',
+    duration: 4,
+    price: 590,
+    image: wonderOfTheSeas
+  },
+  {
+    ship: 'HARMONY OF THE SEAS',
+    destination: 'Western Caribbean',
+    duration: 5,
+    price: 400,
+    image: harmonyOfTheSeas
+  },
+  {
+    ship: 'MARINER OF THE SEAS',
+    destination: 'Perfect Day Getaway',
+    duration: 3,
+    price: 330,
+    image: marinerOfTheSeas
+  },
+  {
+    ship: 'NAVIGATOR OF THE SEAS',
+    destination: 'Catalina',
+    duration: 7,
+    price: 359,
+    image: navigatorOfTheSeas
   }
-  // {
-  //   ship: 'WONDER OF THE SEAS',
-  //   destination: 'Bahamas',
-  //   duration: 4,
-  //   price: 590,
-  //   image: wonderOfTheSeas,
-  //
-  // },
-  // {
-  //   ship: 'HARMONY OF THE SEAS',
-  //   destination: 'Western Caribbean',
-  //   duration: 5,
-  //   price: 400,
-  //   image: harmonyOfTheSeas,
-  //
-  // },
-  // {
-  //   ship: 'MARINER OF THE SEAS',
-  //   destination: 'Perfect Day Getaway',
-  //   duration: 3,
-  //   price: 330,
-  //   image: marinerOfTheSeas,
-  //
-  // },
-  // {
-  //   ship: 'NAVIGATOR OF THE SEAS',
-  //   destination: 'Catalina',
-  //   duration: 7,
-  //   price: 359,
-  //   image: navigatorOfTheSeas,
-  //
-  // },
   // {
   //   ship: 'SYMPHONY OF THE SEAS',
   //   destination: 'Western Mediterrnean',

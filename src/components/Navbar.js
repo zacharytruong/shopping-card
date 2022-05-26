@@ -6,8 +6,10 @@ import cruiseLogo from './../media/cruiseLogo.png';
 function Navbar({ orders }) {
   const [totalItems, setTotalItems] = useState(0);
   useEffect(() => {
-    const tempOrders = orders.map((order) => order.quantity);
-    const total = tempOrders.reduce((a, b) => parseInt(a) + parseInt(b), 0);
+    const total = orders.reduce(
+      (prev, cur) => parseInt(cur.quantity) + parseInt(prev),
+      0
+    );
     setTotalItems(total);
   }, [orders]);
   return (
@@ -35,10 +37,12 @@ function Navbar({ orders }) {
         </NavLink>
         <NavLink to="/checkout" style={{ display: 'flex', paddingLeft: 20 }}>
           <i
+            role='menuitem'
+            aria-label='cartIcon'
             className="fa-solid fa-cart-flatbed"
             style={{ fontSize: 35, color: '#FFFFFF' }}
           ></i>
-          <Text size={35} css={{ paddingLeft: 10 }}>
+          <Text role='menuitem' aria-label='ordersQuantity' size={35} css={{ paddingLeft: 10 }}>
             {totalItems}
           </Text>
         </NavLink>
