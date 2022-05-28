@@ -1,18 +1,32 @@
-import { Button, Card, Col, Input, Row, Text } from '@nextui-org/react';
+import { Button, Card, Col, Input, Row, Spacer, Text } from '@nextui-org/react';
 import { gsap } from 'gsap';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Products } from '../data/Products';
 
-function ProductCard({ product, addToOrderFromShopPage }) {
+function ProductDetail({ products = Products, addToOrderFromProductDetail }) {
   const [orderQuantity, setOrderQUantity] = useState(1);
-  const handleAddOrder = (e) => addToOrderFromShopPage(e.target, orderQuantity);
+  const params = useParams();
+
+  const product = products.find(
+    (product) => parseInt(product.id) === parseInt(params.id)
+  );
+
+  const handleAddOrder = () => {
+    const order = { ...product };
+    order.quantity = orderQuantity;
+    addToOrderFromProductDetail(order);
+  };
+
   const handleOnChange = (e) => setOrderQUantity(parseInt(e.target.value));
+
   const onEnterAnima = ({ currentTarget }) =>
     gsap.to(currentTarget, { scale: 1.2 });
   const onLeaveAnima = ({ currentTarget }) =>
     gsap.to(currentTarget, { scale: 1 });
+    
   return (
-    <li className="singleProduct">
+    <div style={{ maxWidth: 700, margin: '100px auto' }}>
       <Card cover css={{ w: '100%' }}>
         <Card.Header
           css={{
@@ -38,18 +52,14 @@ function ProductCard({ product, addToOrderFromShopPage }) {
           </Col>
         </Card.Header>
         <Card.Body>
-          <Link to={`${product.id}`}>
-            <Card.Image
-              role="img"
-              aria-label={`featuredImage${product.id}`}
-              src={product.image}
-              height={400}
-              width="100%"
-              alt={product.ship}
-              onMouseEnter={onEnterAnima}
-              onMouseLeave={onLeaveAnima}
-            />
-          </Link>
+          <Card.Image
+            src={product.image}
+            height={400}
+            width="100%"
+            alt={product.ship}
+            onMouseEnter={onEnterAnima}
+            onMouseLeave={onLeaveAnima}
+          />
         </Card.Body>
         <Card.Footer
           blur
@@ -103,8 +113,23 @@ function ProductCard({ product, addToOrderFromShopPage }) {
           </Text>
         </Button>
       </Row>
-    </li>
+      <Spacer y={3} />
+      <Row>
+        <Text h3>Description:</Text>
+      </Row>
+      <Row>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+      </Row>
+    </div>
   );
 }
 
-export default ProductCard;
+export default ProductDetail;

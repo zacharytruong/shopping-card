@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 function SingleProductCheckOut({
   order,
   index,
-  updateSingleOrder,
-  removeProduct
+  updateOrderFromCheckOut,
+  removeOrderFromCheckOut
 }) {
   const [quantity, setOrderQUantity] = useState(order.quantity);
   const handleOnChange = (e) => setOrderQUantity(e.target.value);
-  const updateSingleOrderQuantity = () => updateSingleOrder(index, quantity);
-  const removeSingleProduct = () => removeProduct(index);
+  const updateOrderFromCheckOutQuantity = () => updateOrderFromCheckOut(index, quantity);
+  const removeSingleProduct = () => removeOrderFromCheckOut(index);
 
   return (
     <li className="singleOrder">
@@ -39,7 +39,7 @@ function SingleProductCheckOut({
             color="gradient"
             bordered
             ghost
-            onClick={updateSingleOrderQuantity}
+            onClick={updateOrderFromCheckOutQuantity}
             css={{ marginTop: 10, marginBottom: 10 }}
           >
             Update Quantity

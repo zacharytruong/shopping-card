@@ -37,7 +37,11 @@ function Home() {
             boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
             backdropFilter: 'blur( 4px )',
             borderRadius: 10,
-            border: '1px solid rgba( 255, 255, 255, 0.18 )'
+            border: '1px solid rgba( 255, 255, 255, 0.18 )',
+            minHeight: '50vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
           <Row>

@@ -1,10 +1,9 @@
 import { Button, Card, Container, Text } from '@nextui-org/react';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import uniqid from 'uniqid';
 import SingleProductCheckOut from './SingleProductCheckout';
 
-function CheckOut({ orders, updateSingleOrder, removeProduct }) {
+function CheckOut({ orders, updateOrderFromCheckOut, removeOrderFromCheckOut }) {
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
@@ -42,11 +41,11 @@ function CheckOut({ orders, updateSingleOrder, removeProduct }) {
         ) : (
           orders.map((order, index) => (
             <SingleProductCheckOut
-              key={uniqid()}
+              key={order.id}
               order={order}
               index={index}
-              updateSingleOrder={updateSingleOrder}
-              removeProduct={removeProduct}
+              updateOrderFromCheckOut={updateOrderFromCheckOut}
+              removeOrderFromCheckOut={removeOrderFromCheckOut}
             />
           ))
         )}
@@ -55,7 +54,7 @@ function CheckOut({ orders, updateSingleOrder, removeProduct }) {
         <Text size={30} css={{ paddingLeft: 10, display: 'inline-block' }}>
           Total: {' $'}
           <span role="note" aria-label="totalPrice">
-             {totalPrice}
+            {totalPrice}
           </span>
         </Text>
       </Card>

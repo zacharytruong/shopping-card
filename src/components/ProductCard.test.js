@@ -39,7 +39,7 @@ describe('Product Card component', () => {
     };
     render(
       <BrowserRouter>
-        <ProductCard product={fakedProduct} addToOrder={fakedAddToOrder} />
+        <ProductCard product={fakedProduct} submitOrder={fakedAddToOrder} />
       </BrowserRouter>
     );
     const input = screen.getByRole('spinbutton', { name: /quantity/i });

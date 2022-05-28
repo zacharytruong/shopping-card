@@ -7,6 +7,7 @@ import oasisOfTheSeas from './../media/oasis-of-the-seas.jpg';
 
 export const Products = [
   {
+    id: 1,
     ship: 'WONDER OF THE SEAS',
     destination: 'Bahamas',
     duration: 3,
@@ -14,6 +15,7 @@ export const Products = [
     image: wonderOfTheSeas
   },
   {
+    id: 2,
     ship: 'HARMONY OF THE SEAS',
     destination: 'Western Caribbean',
     duration: 4,
@@ -21,6 +23,7 @@ export const Products = [
     image: harmonyOfTheSeas
   },
   {
+    id: 3,
     ship: 'MARINER OF THE SEAS',
     destination: 'Perfect Day Getaway',
     duration: 2,
@@ -28,6 +31,7 @@ export const Products = [
     image: marinerOfTheSeas
   },
   {
+    id: 4,
     ship: 'NAVIGATOR OF THE SEAS',
     destination: 'Catalina',
     duration: 4,
@@ -35,6 +39,7 @@ export const Products = [
     image: navigatorOfTheSeas
   },
   {
+    id: 5,
     ship: 'SYMPHONY OF THE SEAS',
     destination: 'Western Mediterrnean',
     duration: 3,
@@ -42,6 +47,7 @@ export const Products = [
     image: symphonyOfTheSeas
   },
   {
+    id: 6,
     ship: 'OASIS OF THE SEAS',
     destination: 'Canada',
     duration: 5,
@@ -49,6 +55,7 @@ export const Products = [
     image: oasisOfTheSeas
   },
   {
+    id: 7,
     ship: 'WONDER OF THE SEAS',
     destination: 'Bahamas',
     duration: 4,
@@ -56,6 +63,7 @@ export const Products = [
     image: wonderOfTheSeas
   },
   {
+    id: 8,
     ship: 'HARMONY OF THE SEAS',
     destination: 'Western Caribbean',
     duration: 5,
@@ -63,6 +71,7 @@ export const Products = [
     image: harmonyOfTheSeas
   },
   {
+    id: 9,
     ship: 'MARINER OF THE SEAS',
     destination: 'Perfect Day Getaway',
     duration: 3,
@@ -70,28 +79,29 @@ export const Products = [
     image: marinerOfTheSeas
   },
   {
+    id: 10,
     ship: 'NAVIGATOR OF THE SEAS',
     destination: 'Catalina',
     duration: 7,
     price: 359,
     image: navigatorOfTheSeas
+  },
+  {
+    id: 11,
+    ship: 'SYMPHONY OF THE SEAS',
+    destination: 'Western Mediterrnean',
+    duration: 4,
+    price: 530,
+    image: symphonyOfTheSeas
+  },
+  {
+    id: 12,
+    ship: 'OASIS OF THE SEAS',
+    destination: 'Canada',
+    duration: 7,
+    price: 596,
+    image: oasisOfTheSeas
   }
-  // {
-  //   ship: 'SYMPHONY OF THE SEAS',
-  //   destination: 'Western Mediterrnean',
-  //   duration: 4,
-  //   price: 530,
-  //   image: symphonyOfTheSeas,
-  //
-  // },
-  // {
-  //   ship: 'OASIS OF THE SEAS',
-  //   destination: 'Canada',
-  //   duration: 7,
-  //   price: 596,
-  //   image: oasisOfTheSeas,
-  //
-  // },
   // {
   //   ship: 'WONDER OF THE SEAS',
   //   destination: 'Western Caribbean',
