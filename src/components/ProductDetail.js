@@ -24,7 +24,7 @@ function ProductDetail({ products = Products, addToOrderFromProductDetail }) {
     gsap.to(currentTarget, { scale: 1.2 });
   const onLeaveAnima = ({ currentTarget }) =>
     gsap.to(currentTarget, { scale: 1 });
-    
+
   return (
     <div style={{ maxWidth: 700, margin: '100px auto' }}>
       <Card cover css={{ w: '100%' }}>

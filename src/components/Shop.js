@@ -5,12 +5,7 @@ import uniqid from 'uniqid';
 import ProductCard from './ProductCard';
 import SearchByShips from './SearchByShips';
 
-function Shop({
-  shipFilter,
-  setShipFilter,
-  products,
-  addToOrderFromShopPage
-}) {
+function Shop({ shipFilter, setShipFilter, products, addToOrderFromShopPage }) {
   const changeShipFilter = (value) => setShipFilter(value);
   const onClickShopAllCruise = () => setShipFilter('');
   const onEnterShopAllCruise = ({ currentTarget }) =>

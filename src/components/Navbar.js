@@ -37,12 +37,17 @@ function Navbar({ orders }) {
         </NavLink>
         <NavLink to="/checkout" style={{ display: 'flex', paddingLeft: 20 }}>
           <i
-            role='menuitem'
-            aria-label='cartIcon'
+            role="menuitem"
+            aria-label="cartIcon"
             className="fa-solid fa-cart-flatbed"
             style={{ fontSize: 35, color: '#FFFFFF' }}
           ></i>
-          <Text role='menuitem' aria-label='ordersQuantity' size={35} css={{ paddingLeft: 10 }}>
+          <Text
+            role="menuitem"
+            aria-label="ordersQuantity"
+            size={35}
+            css={{ paddingLeft: 10 }}
+          >
             {totalItems}
           </Text>
         </NavLink>

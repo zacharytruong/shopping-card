@@ -9,7 +9,8 @@ function SingleProductCheckOut({
 }) {
   const [quantity, setOrderQUantity] = useState(order.quantity);
   const handleOnChange = (e) => setOrderQUantity(e.target.value);
-  const updateOrderFromCheckOutQuantity = () => updateOrderFromCheckOut(index, quantity);
+  const updateOrderFromCheckOutQuantity = () =>
+    updateOrderFromCheckOut(index, quantity);
   const removeSingleProduct = () => removeOrderFromCheckOut(index);
 
   return (
@@ -23,7 +24,12 @@ function SingleProductCheckOut({
           <Text>{order.ship}</Text>
           <Text>{order.duration} Nights</Text>
           <Text>Price: ${order.price} /night</Text>
-          <Text>Subtotal: $<span role='note' aria-label='subTotal'>{order.price * order.quantity}</span></Text>
+          <Text>
+            Subtotal: $
+            <span role="note" aria-label="subTotal">
+              {order.price * order.quantity}
+            </span>
+          </Text>
         </Col>
         <Col>
           <Input

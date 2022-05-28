@@ -3,7 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SingleProductCheckOut from './SingleProductCheckout';
 
-function CheckOut({ orders, updateOrderFromCheckOut, removeOrderFromCheckOut }) {
+function CheckOut({
+  orders,
+  updateOrderFromCheckOut,
+  removeOrderFromCheckOut
+}) {
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
