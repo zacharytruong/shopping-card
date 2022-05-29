@@ -2,16 +2,13 @@ import { Button, Card, Col, Input, Row, Spacer, Text } from '@nextui-org/react';
 import { gsap } from 'gsap';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Products } from '../data/Products';
 
-function ProductDetail({ products = Products, addToOrderFromProductDetail }) {
+function ProductDetail({ products, addToOrderFromProductDetail }) {
   const [orderQuantity, setOrderQUantity] = useState(1);
   const params = useParams();
-
   const product = products.find(
     (product) => parseInt(product.id) === parseInt(params.id)
   );
-
   const handleAddOrder = () => {
     const order = { ...product };
     order.quantity = orderQuantity;
@@ -24,7 +21,6 @@ function ProductDetail({ products = Products, addToOrderFromProductDetail }) {
     gsap.to(currentTarget, { scale: 1.2 });
   const onLeaveAnima = ({ currentTarget }) =>
     gsap.to(currentTarget, { scale: 1 });
-
   return (
     <div style={{ maxWidth: 700, margin: '100px auto' }}>
       <Card cover css={{ w: '100%' }}>

@@ -1,10 +1,11 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import ProductCard from './ProductCard';
 
 describe('Product Card component', () => {
-  it('onchange capture corrects quantity', () => {
+  test('onchange capture corrects quantity', () => {
     const fakedOnChange = jest.fn();
     const fakedProduct = {
       ship: 'WONDER OF THE SEAS',
@@ -23,7 +24,7 @@ describe('Product Card component', () => {
     userEvent.type(input, '5123');
     expect(input.value).toBe('5123');
   });
-  it('submit correct quantity to the orders', () => {
+  test('submit correct quantity to the orders', () => {
     const fakedOrders = [];
     let fakedQuantity = 1;
     const fakedProduct = {
@@ -39,7 +40,7 @@ describe('Product Card component', () => {
     };
     render(
       <BrowserRouter>
-        <ProductCard product={fakedProduct} submitOrder={fakedAddToOrder} />
+        <ProductCard product={fakedProduct} addToOrderFromShopPage={fakedAddToOrder} />
       </BrowserRouter>
     );
     const input = screen.getByRole('spinbutton', { name: /quantity/i });

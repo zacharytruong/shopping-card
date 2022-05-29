@@ -1,11 +1,12 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import Navbar from './Navbar';
 
 describe('Navbar component', () => {
-  it('should render logo', () => {
-    const fakedOrders = [
+  test('it should render logo', () => {
+    const mockOrders = [
       {
         quantity: 1
       },
@@ -15,15 +16,14 @@ describe('Navbar component', () => {
     ];
     render(
       <BrowserRouter>
-        <Navbar orders={fakedOrders} />
+        <Navbar orders={mockOrders} />
       </BrowserRouter>
     );
-    expect(
-      screen.getByRole('img', { name: /ultimat world cruise/i })
-    ).toMatchSnapshot();
+    const logo = screen.getByRole('img', { name: /ultimat world cruise/i });
+    expect(logo).toBeInTheDocument();
   });
-  it('should go to homepage if user clicks on logo', () => {
-    const fakedOrders = [
+  test('it should go to homepage if user clicks on logo', () => {
+    const mockOrders = [
       {
         quantity: 1
       },
@@ -33,15 +33,15 @@ describe('Navbar component', () => {
     ];
     render(
       <BrowserRouter>
-        <Navbar orders={fakedOrders} />
+        <Navbar orders={mockOrders} />
       </BrowserRouter>
     );
     const logo = screen.getByRole('img', { name: /ultimat world cruise/i });
     userEvent.click(logo);
     expect(window.location.pathname).toMatch(/\//i);
   });
-  it('should render shop menu item', () => {
-    const fakedOrders = [
+  test('it should render shop menu item', () => {
+    const mockOrders = [
       {
         quantity: 1
       },
@@ -51,14 +51,14 @@ describe('Navbar component', () => {
     ];
     render(
       <BrowserRouter>
-        <Navbar orders={fakedOrders} />
+        <Navbar orders={mockOrders} />
       </BrowserRouter>
     );
     const shop = screen.getByRole('heading', { name: /shop/i });
-    expect(shop).toMatchSnapshot();
+    expect(shop).toBeInTheDocument();
   });
-  it('should go to shop page if user clicks on shop menu', () => {
-    const fakedOrders = [
+  test('should go to shop page if user clicks on shop menu', () => {
+    const mockOrders = [
       {
         quantity: 1
       },
@@ -68,15 +68,15 @@ describe('Navbar component', () => {
     ];
     render(
       <BrowserRouter>
-        <Navbar orders={fakedOrders} />
+        <Navbar orders={mockOrders} />
       </BrowserRouter>
     );
     const shop = screen.getByRole('heading', { name: /shop/i });
     userEvent.click(shop);
     expect(window.location.pathname).toMatch(/\/shop/i);
   });
-  it('should render cart icon', () => {
-    const fakedOrders = [
+  test('should render cart icon', () => {
+    const mockOrders = [
       {
         quantity: 1
       },
@@ -86,14 +86,14 @@ describe('Navbar component', () => {
     ];
     render(
       <BrowserRouter>
-        <Navbar orders={fakedOrders} />
+        <Navbar orders={mockOrders} />
       </BrowserRouter>
     );
     const cart = screen.getByRole('menuitem', { name: /carticon/i });
-    expect(cart).toMatchSnapshot();
+    expect(cart).toBeInTheDocument();
   });
-  it('should go to checkout page if user clicks on cart icon', () => {
-    const fakedOrders = [
+  test('should go to checkout page if user clicks on cart icon', () => {
+    const mockOrders = [
       {
         quantity: 1
       },
@@ -103,15 +103,15 @@ describe('Navbar component', () => {
     ];
     render(
       <BrowserRouter>
-        <Navbar orders={fakedOrders} />
+        <Navbar orders={mockOrders} />
       </BrowserRouter>
     );
     const cart = screen.getByRole('menuitem', { name: /carticon/i });
     userEvent.click(cart);
     expect(window.location.pathname).toMatch(/\/checkout/i);
   });
-  it('should render total number of orders', () => {
-    const fakedOrders = [
+  test('should render total number of orders', () => {
+    const mockOrders = [
       {
         quantity: 1
       },
@@ -121,7 +121,7 @@ describe('Navbar component', () => {
     ];
     render(
       <BrowserRouter>
-        <Navbar orders={fakedOrders} />
+        <Navbar orders={mockOrders} />
       </BrowserRouter>
     );
     const ordersQuantity = screen.getByRole('menuitem', {

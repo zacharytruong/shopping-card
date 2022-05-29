@@ -1,10 +1,11 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import SingleProductCheckOut from './SingleProductCheckout';
 
 describe('single order detail', () => {
-  it('onchange capture correct quantity', () => {
+  test('onchange capture correct quantity', () => {
     const fakedOrder = {
       ship: 'WONDER OF THE SEAS',
       destination: 'Bahamas',
@@ -22,7 +23,7 @@ describe('single order detail', () => {
     userEvent.type(input, '5');
     expect(input.value).toMatch(/5/i);
   });
-  it('should update the order quantity correctly when user clicks update order button', () => {
+  test('should update the order quantity correctly when user clicks update order button', () => {
     const fakedOrder = {
       ship: 'WONDER OF THE SEAS',
       destination: 'Bahamas',
@@ -38,7 +39,7 @@ describe('single order detail', () => {
       <BrowserRouter>
         <SingleProductCheckOut
           order={fakedOrder}
-          updateSingleOrder={fakedUpdateOrder}
+          updateOrderFromCheckOut={fakedUpdateOrder}
         />
       </BrowserRouter>
     );
@@ -49,7 +50,7 @@ describe('single order detail', () => {
     userEvent.click(button);
     expect(fakedOrder.quantity).toMatch(/5/i);
   });
-  it('should remove the order from the orders array when user clicks remove order button', () => {
+  test('should remove the order from the orders array when user clicks remove order button', () => {
     const fakedOrder = {
       ship: 'WONDER OF THE SEAS',
       destination: 'Bahamas',
@@ -65,7 +66,7 @@ describe('single order detail', () => {
         <SingleProductCheckOut
           order={fakedOrder}
           index={0}
-          removeProduct={fakedRemoveOrder}
+          removeOrderFromCheckOut={fakedRemoveOrder}
         />
       </BrowserRouter>
     );
@@ -74,7 +75,7 @@ describe('single order detail', () => {
     userEvent.click(button);
     expect(fakedOrders.length).toBe(0)
   });
-  it('should calculate subtotal correctly', () => {
+  test('should calculate subtotal correctly', () => {
     const fakedOrder = {
       price: 5,
       quantity: 3

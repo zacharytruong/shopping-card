@@ -1,34 +1,35 @@
+import '@testing-library/jest-dom';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
-import Checkout from './CheckOut';
+import CheckOut from './CheckOut';
 
-describe('Checkout component when order is 0', () => {
-  it('should render empty cart text', () => {
+describe('CheckOut component when order is 0', () => {
+  test('should render empty cart text', () => {
     const fakedOrders = [];
     render(
       <BrowserRouter>
-        <Checkout orders={fakedOrders} />
+        <CheckOut orders={fakedOrders} />
       </BrowserRouter>
     );
     const message = screen.getByRole('alert');
     expect(message.textContent).toMatch(/Your cart is empty./i);
   });
-  it('should render shop button', () => {
+  test('should render shop button', () => {
     const fakedOrders = [];
     render(
       <BrowserRouter>
-        <Checkout orders={fakedOrders} />
+        <CheckOut orders={fakedOrders} />
       </BrowserRouter>
     );
     const button = screen.getByRole('button', { name: /shop your cruises/i });
     expect(button.textContent).toMatch(/shop your cruises/i);
   });
-  it('should navigate to shop page if user clicks on shop button', () => {
+  test('should navigate to shop page if user clicks on shop button', () => {
     const fakedOrders = [];
     render(
       <BrowserRouter>
-        <Checkout orders={fakedOrders} />
+        <CheckOut orders={fakedOrders} />
       </BrowserRouter>
     );
     const button = screen.getByRole('button', { name: /shop your cruises/i });
@@ -37,8 +38,8 @@ describe('Checkout component when order is 0', () => {
   });
 });
 
-describe('Checkout component when order is > 0', () => {
-  it('should render all list item of all orders', () => {
+describe('CheckOut component when order is > 0', () => {
+  test('should render all list item of all orders', () => {
     const fakedOrders = [
       {
         ship: 'WONDER OF THE SEAS',
@@ -67,14 +68,14 @@ describe('Checkout component when order is > 0', () => {
     ];
     render(
       <BrowserRouter>
-        <Checkout orders={fakedOrders} />
+        <CheckOut orders={fakedOrders} />
       </BrowserRouter>
     );
     const list = screen.getByRole('list', { name: /allOrdersList/i });
     const listitems = within(list).getAllByRole('listitem');
     expect(listitems.length).toBe(3);
   });
-  it('should render total price correctly', () => {
+  test('should render total price correctly', () => {
     const fakedOrders = [
       {
         price: 2,
@@ -91,7 +92,7 @@ describe('Checkout component when order is > 0', () => {
     ];
     render(
       <BrowserRouter>
-        <Checkout orders={fakedOrders} />
+        <CheckOut orders={fakedOrders} />
       </BrowserRouter>
     );
     const total = screen.getByRole('note', { name: /totalprice/i });

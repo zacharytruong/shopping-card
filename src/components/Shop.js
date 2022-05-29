@@ -1,18 +1,27 @@
 import { Col, Container, Grid, Row, Text } from '@nextui-org/react';
 import { gsap } from 'gsap';
-import React from 'react';
+import React, { useEffect } from 'react';
 import uniqid from 'uniqid';
 import ProductCard from './ProductCard';
 import SearchByShips from './SearchByShips';
+import { Products } from '../data/Products';
 
-function Shop({ shipFilter, setShipFilter, products, addToOrderFromShopPage }) {
+function Shop({
+  shipFilter,
+  setShipFilter,
+  products,
+  setProducts,
+  addToOrderFromShopPage
+}) {
   const changeShipFilter = (value) => setShipFilter(value);
   const onClickShopAllCruise = () => setShipFilter('');
   const onEnterShopAllCruise = ({ currentTarget }) =>
     gsap.to(currentTarget, { scale: 1.2 });
   const onLeaveShopAllCruise = ({ currentTarget }) =>
     gsap.to(currentTarget, { scale: 1 });
-
+  useEffect(() => {
+    setProducts(Products);
+  }, [setProducts]);
   return (
     <Container display="flex" css={{ paddingTop: 50 }}>
       <Row gap={1}>

@@ -1,11 +1,15 @@
 import { Container, Row, Text } from '@nextui-org/react';
 import { gsap } from 'gsap';
+import uniqid from 'uniqid'
 import React, { useEffect, useState } from 'react';
 
 function SearchByShips({ shipFilter, changeShipFilter, products }) {
   const [ships, setShips] = useState([]);
-  const handleOnClick = ({ currentTarget }) => {
-    changeShipFilter(currentTarget.textContent);
+  // const handleOnClick = ({ currentTarget }) => {
+  //   changeShipFilter(currentTarget.textContent);
+  // };
+  const handleOnClick = (e) => {
+    changeShipFilter(e.target.textContent);
   };
   const onEnterShipFilter = ({ currentTarget }) =>
     gsap.to(currentTarget, { scale: 1.2 });
@@ -28,7 +32,7 @@ function SearchByShips({ shipFilter, changeShipFilter, products }) {
           <Text
             role="listitem"
             aria-label={ship.ship}
-            key={ship}
+            key={uniqid()}
             onClick={handleOnClick}
             css={
               shipFilter === ship

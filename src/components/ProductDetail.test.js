@@ -1,84 +1,98 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, useParams } from 'react-router-dom';
+import ProductDetail from './ProductDetail';
 import Shop from './Shop';
 
+jest.mock('react-router-dom', () => ({
+  __esModule: true,
+  ...jest.requireActual('react-router-dom'),
+  useParams: () => {
+    return { id: 1 };
+  }
+}));
+
 describe('Product Detail component', () => {
-  it('should display product info correctly', () => {
-    const fakedProducts = [
+  test('should display product info correctly', () => {
+    const mockProducts = [
       {
-        id: 4,
-        ship: 'NAVIGATOR OF THE SEAS',
-        destination: 'Catalina',
-        duration: 4,
-        price: 159,
-        image: 'navigatorOfTheSeas'
+        id: 1,
+        ship: 'WONDER OF THE SEAS',
+        destination: 'Bahamas',
+        duration: 3,
+        price: 5
       }
     ];
+    const mockSetProducts = () => jest.fn().mockReturnValue(mockProducts);
     render(
-      <MemoryRouter initialEntries={['/shop']}>
-        <Shop products={fakedProducts} />
+      <MemoryRouter>
+        <Shop
+          products={mockProducts}
+          setProducts={mockSetProducts}
+          shipFilter=""
+        />
       </MemoryRouter>
     );
-
-    const img = screen.getByRole('img');
+    const img = screen.getByRole('img', { name: /featuredimage1/i });
     userEvent.click(img);
-    const heading = screen.getByRole('heading', { name: /Catalina/i });
+    const heading = screen.getByRole('heading', { name: /Bahamas/i });
     expect(heading).toBeInTheDocument();
   });
-  it.skip('should capture order quantity correctly', () => {
-    const fakedProducts = [
+  test('should capture order quantity correctly', () => {
+    const mockProducts = [
       {
-        id: 4,
-        ship: 'NAVIGATOR OF THE SEAS',
-        destination: 'Catalina',
-        duration: 4,
-        price: 159,
-        image: 'navigatorOfTheSeas'
+        id: 1,
+        ship: 'WONDER OF THE SEAS',
+        destination: 'Bahamas',
+        duration: 3,
+        price: 5
       }
     ];
+    const mockSetProducts = () => jest.fn().mockReturnValue(mockProducts);
     render(
-      <MemoryRouter initialEntries={['/shop']}>
-        <Shop products={fakedProducts} />
+      <MemoryRouter>
+        <Shop
+          products={mockProducts}
+          setProducts={mockSetProducts}
+          shipFilter=""
+        />
       </MemoryRouter>
     );
 
-    const img = screen.getByRole('img', { name: /featuredimage4/i });
+    const img = screen.getByRole('img', { name: /featuredimage1/i });
     userEvent.click(img);
     const input = screen.getByRole('spinbutton', { name: /quantity/i });
     userEvent.type(input, '5123');
     expect(input.value).toBe('5123');
   });
-  it.skip('should submit order to the orders correctly', () => {
-    const order = {
-      id: 4,
-      ship: 'NAVIGATOR OF THE SEAS',
-      destination: 'Catalina',
-      duration: 4,
-      price: 159,
-      image: 'navigatorOfTheSeas',
-      quantity: 2
-    };
-    const orders = [];
-    const fakedProducts = [
+  test('should submit order to the orders correctly', () => {
+    const mockProducts = [
       {
-        id: 4,
-        ship: 'NAVIGATOR OF THE SEAS',
-        destination: 'Catalina',
-        duration: 4,
-        price: 159,
-        image: 'navigatorOfTheSeas'
+        id: 1,
+        ship: 'WONDER OF THE SEAS',
+        destination: 'Bahamas',
+        duration: 3,
+        price: 5
       }
     ];
-    const fakedAddToOrder = jest.fn().mockReturnValue([order])
+
+    const orders = [];
+
+    const mockAddToOrder = (order) => orders.push(order);
+
     render(
-      <MemoryRouter initialEntries={['/shop']}>
-        <Shop products={fakedProducts} />
+      <MemoryRouter>
+        <ProductDetail
+          products={mockProducts}
+          addToOrderFromProductDetail={mockAddToOrder}
+        />
       </MemoryRouter>
     );
     const button = screen.getByRole('button', { name: /add to cart/i });
     userEvent.click(button);
-    expect(orders.length).toBe(2);
+    expect(orders.length).toBe(1);
+    expect(orders[0].id).toBe(1);
+    expect(orders[0].quantity).toBe(1)
   });
 });
