@@ -1,5 +1,5 @@
 import { NextUIProvider } from '@nextui-org/react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CheckOut from './components/CheckOut';
 import Home from './components/Home';
@@ -7,7 +7,6 @@ import Navbar from './components/Navbar';
 import ProductDetail from './components/ProductDetail';
 import Shop from './components/Shop';
 import darkTheme from './components/Theme';
-import { Products } from './data/Products';
 
 function App() {
   const [orders, setOrders] = useState([]);
@@ -45,9 +44,6 @@ function App() {
   };
   const addToOrderFromProductDetail = (order) =>
     setOrders(orders.concat(order));
-  useEffect(() => {
-    setProducts(Products);
-  }, []);
 
   return (
     <BrowserRouter>
@@ -66,7 +62,6 @@ function App() {
                 products={products}
                 setProducts={setProducts}
                 addToOrderFromShopPage={addToOrderFromShopPage}
-                addToOrderFromProductDetail={addToOrderFromProductDetail}
               />
             }
           />
