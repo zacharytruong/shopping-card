@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/shopping-card/static/js/main.cdf4b65f.js",
+    "static/js/787.7650793b.chunk.js": "/shopping-card/static/js/787.7650793b.chunk.js",
+    "static/media/hero-background.jpg": "/shopping-card/static/media/hero-background.916c784ffb104731b891.jpg",
+    "static/media/harmony-perfect-storm.jpg": "/shopping-card/static/media/harmony-perfect-storm.549bd9ec67d9eb7511d7.jpg",
+    "static/media/mariner-of-the-sea.jpg": "/shopping-card/static/media/mariner-of-the-sea.daff9db017fe8210585e.jpg",
+    "static/media/oasis-of-the-seas.jpg": "/shopping-card/static/media/oasis-of-the-seas.8088bbf7d4e8b8875f61.jpg",
+    "static/media/symphony-of-the-sea.jpg": "/shopping-card/static/media/symphony-of-the-sea.a01b0f89f2d7b2646a8e.jpg",
+    "static/media/navigator-of-the-seas.jpg": "/shopping-card/static/media/navigator-of-the-seas.1d3f22b8344e34d1b692.jpg",
+    "static/media/wonder-of-the-seas.jpg": "/shopping-card/static/media/wonder-of-the-seas.95c34c4bc95b7d70c305.jpg",
+    "static/media/cruiseLogo.png": "/shopping-card/static/media/cruiseLogo.9600a6fcb75ac38aa207.png",
+    "index.html": "/shopping-card/index.html",
+    "main.cdf4b65f.js.map": "/shopping-card/static/js/main.cdf4b65f.js.map",
+    "787.7650793b.chunk.js.map": "/shopping-card/static/js/787.7650793b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.cdf4b65f.js"
+  ]
+}
