@@ -50,9 +50,9 @@ function App() {
       <NextUIProvider theme={darkTheme}>
         <Navbar orders={orders} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/shopping-cart/" element={<Home />} />
           <Route
-            path="/shop"
+            path="/shopping-cart/shop"
             element={
               <Shop
                 orders={orders}
@@ -66,7 +66,7 @@ function App() {
             }
           />
           <Route
-            path="/checkout"
+            path="/shopping-cart/checkout"
             element={
               <CheckOut
                 orders={orders}
@@ -76,7 +76,7 @@ function App() {
             }
           />
           <Route
-            path="/shop/:id"
+            path="/shopping-cart/shop/:id"
             element={
               <ProductDetail
                 products={products}

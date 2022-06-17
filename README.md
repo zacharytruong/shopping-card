@@ -8,3 +8,5 @@ Demonstrated skills:
 3. React UI Framework: NextUI
 4. React Testing Library
 5. JavaScript Animation Library - GSAP
+
+Demo 👉 [Github Page](https://zacharytruong.github.io/shopping-cart)
