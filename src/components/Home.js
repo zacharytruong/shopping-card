@@ -61,7 +61,7 @@ function Home() {
               color="gradient"
               bordered
               ghost
-              onClick={() => navigate('/shop')}
+              onClick={() => navigate('/shopping-cart/')}
             >
               Browse
             </Button>

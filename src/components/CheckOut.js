@@ -37,7 +37,7 @@ function CheckOut({
               color="gradient"
               bordered
               ghost
-              onClick={() => navigate('/shop')}
+              onClick={() => navigate("/shopping-cart/shop")}
             >
               Shop Your Cruises
             </Button>

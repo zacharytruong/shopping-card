@@ -38,7 +38,7 @@ describe('Navbar component', () => {
     );
     const logo = screen.getByRole('img', { name: /ultimat world cruise/i });
     userEvent.click(logo);
-    expect(window.location.pathname).toMatch(/\//i);
+    expect(window.location.pathname).toMatch(/\/shopping-cart/i);
   });
   test('it should render shop menu item', () => {
     const mockOrders = [

@@ -15,7 +15,7 @@ function Navbar({ orders }) {
   return (
     <Container display="flex" wrap="wrap" css={{ h: 100 }}>
       <Col span={3}>
-        <NavLink to="/">
+        <NavLink to="/shopping-cart/">
           <Image
             width={200}
             height={100}
@@ -32,10 +32,13 @@ function Navbar({ orders }) {
           justifyContent: 'flex-end'
         }}
       >
-        <NavLink to="/shop">
+        <NavLink to="/shopping-cart/shop">
           <Text h2>Shop</Text>
         </NavLink>
-        <NavLink to="/checkout" style={{ display: 'flex', paddingLeft: 20 }}>
+        <NavLink
+          to="/shopping-cart/checkout"
+          style={{ display: 'flex', paddingLeft: 20 }}
+        >
           <i
             role="menuitem"
             aria-label="cartIcon"
